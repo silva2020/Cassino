@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sorteio de Cor</title>
+  </head>
+  <body>
+    <h1>Sorteio de Cor</h1>
+    <button id="black" style="background-color: black; color: white;" onclick="countdown()">Preto</button>
+    <button id="red" style="background-color: red; color: white;" onclick="countdown()">Vermelho</button>
+    <p id="resultado"></p>
+    <script>
+      function countdown() {
+        var tempoRestante = 10;
+        var countdownTimer = setInterval(function() {
+          document.getElementById("resultado").innerHTML = "Tempo restante: " + tempoRestante + " segundos";
+          tempoRestante--;
+          if (tempoRestante < 0) {
+            clearInterval(countdownTimer);
+            sorteio();
+          }
+        }, 1000);
+      }
+
+      function sorteio() {
+        var numAleatorio = Math.round(Math.random());
+        if (numAleatorio == 0) {
+          document.getElementById("resultado").innerHTML = "Preto venceu!";
+        } else {
+          document.getElementById("resultado").innerHTML = "Vermelho venceu!";
+        }
+      }
+    </script>
+  </body>
+</html>
